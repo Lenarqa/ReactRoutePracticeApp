@@ -11,8 +11,8 @@ const QuoteForm = (props) => {
   const authorInputRef = useRef();
   const textInputRef = useRef();
 
-  useEffect(()=> {
-    if(!isEntering) {
+  useEffect(() => {
+    if (!isEntering) {
       setIsFormInValid(false);
     }
   }, []);
@@ -34,24 +34,28 @@ const QuoteForm = (props) => {
   const formFocusHandler = () => {
     setIsEntering(true);
     setIsFormInValid(false);
-    
   };
-  
+
   const finishEnteringHandler = () => {
     const enteredAuthor = authorInputRef.current.value;
     const enteredText = textInputRef.current.value;
     if (enteredAuthor.length !== 0 && enteredText.length !== 0) {
       setIsFormInValid(false);
       setIsEntering(false);
-    }else {
-      setIsFormInValid(true)
+    } else {
+      setIsFormInValid(true);
     }
-  }
+  };
 
   return (
     <Fragment>
       {isFormInValid && <p className="centered">Form is not valid</p>}
-      <Prompt when={isEntering} message={(location)=> ("Are you sure you want to leave? All your data will be lose!")} />
+      <Prompt
+        when={isEntering}
+        message={(location) =>
+          "Are you sure you want to leave? All your data will be lose!"
+        }
+      />
       <Card>
         <form
           onFocus={formFocusHandler}
@@ -73,7 +77,9 @@ const QuoteForm = (props) => {
             <textarea id="text" rows="5" ref={textInputRef}></textarea>
           </div>
           <div className={classes.actions}>
-            <button onClick={finishEnteringHandler} className="btn">Add Quote</button>
+            <button onClick={finishEnteringHandler} className="btn">
+              Add Quote
+            </button>
           </div>
         </form>
       </Card>
