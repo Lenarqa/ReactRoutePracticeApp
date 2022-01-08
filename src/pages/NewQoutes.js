@@ -3,7 +3,7 @@ import QuoteForm from "../components/quotes/QuoteForm";
 import { useHistory } from "react-router-dom";
 import useHttp from "../hooks/use-http";
 import { addQuote } from "../lib/api";
-// import classes from './NewQuotes.module.css';
+
 
 const NewQuotes = (props) => {
   const history = useHistory();
